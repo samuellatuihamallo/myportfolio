@@ -111,7 +111,6 @@
 .scrollbar-hidden {
   -ms-overflow-style: none !important;
   scrollbar-width: none !important;
-  overflow-y: auto !important;
 }
 
 .scrollbar-hidden::-webkit-scrollbar {
