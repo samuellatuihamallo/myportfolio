@@ -100,20 +100,15 @@ export default function App() {
   // System link state
   const [isConnected, setIsConnected] = useState(true);
 
-  // Control body overflow - hide scrollbar only when ENGAGED
+  // Control body overflow - always hide scrollbar
   useEffect(() => {
-    if (isConnected) {
+    document.documentElement.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
+    return () => {
       document.documentElement.style.overflow = 'hidden';
       document.body.style.overflow = 'hidden';
-    } else {
-      document.documentElement.style.overflow = 'auto';
-      document.body.style.overflow = 'auto';
-    }
-    return () => {
-      document.documentElement.style.overflow = 'auto';
-      document.body.style.overflow = 'auto';
     };
-  }, [isConnected]);
+  }, []);
 
   // Sync to local storage
   useEffect(() => {
