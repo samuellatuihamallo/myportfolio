@@ -371,7 +371,8 @@ export default function App() {
           <div className="flex items-center gap-2.5">
             <div className="text-right flex flex-col">
               <span className="text-[9px] font-mono text-hud-text-dim tracking-wider uppercase">OPERATOR</span>
-              <span className="text-xs font-mono font-bold text-white uppercase">{profile.name}</span>
+              {/* Diubah menjadi SAMUEL L */}
+              <span className="text-xs font-mono font-bold text-white uppercase">SAMUEL L</span>
             </div>
             
             <div className={`w-8 h-8 rounded-full border border-white/10 overflow-hidden relative ${getThemeTextGlow()}`}>
@@ -395,8 +396,9 @@ export default function App() {
           <div className="hud-glass p-5 rounded-xl border border-white/10 relative overflow-hidden flex flex-col gap-3 shrink-0">
             <div className="flex justify-between items-start">
               <div className="flex flex-col">
+                {/* Diubah menjadi SAMUEL L */}
                 <span className="text-xs font-mono font-bold tracking-wider text-white uppercase">
-                  {profile.name}
+                  SAMUEL L
                 </span>
                 <span className="text-[9px] font-mono text-hud-text-dim uppercase mt-0.5">
                   LVL {Math.floor(profile.level / 10)} FULLSTACK
