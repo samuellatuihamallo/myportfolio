@@ -357,7 +357,7 @@ export default function App() {
         <div className="flex items-center gap-2">
           {/* Ikon petir tetap bersih, warna teks neon ungu tetap dipertahankan */}
           <h1 className="text-lg font-display font-black tracking-wider uppercase flex items-center gap-2 neon-text text-white">
-            Portfolio Digital <span className="text-[11px] font-mono font-normal text-hud-purple drop-shadow-[0_0_8px_rgba(112,0,255,0.4)]">v1.0.0</span>
+            Portfolio Digital <span className="text-[11px] font-mono font-normal text-hud-purple drop-shadow-[0_0_8px_rgba(112,0,255,0.4)]"></span>
           </h1>
         </div>
 
