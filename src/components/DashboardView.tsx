@@ -93,7 +93,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
               MyPortfolio <span className={getGlowTextClass()}>• Port</span>
             </h1>
             <p className="text-hud-text-dim text-sm max-w-2xl font-sans leading-relaxed">
-              LVL {Math.floor(profile.level / 11)} Experienced UI and UX Designer with a passion for creating immersive digital experiences, BACKEND DEVELOPER.
+              LVL {Math.floor(profile.level / 11)} Experienced UI and UX Designer with a passion for creating immersive digital experiences, Backend Developer.
             </p>
           </div>
 
