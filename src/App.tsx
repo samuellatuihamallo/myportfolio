@@ -100,9 +100,9 @@ export default function App() {
   // System link state
   const [isConnected, setIsConnected] = useState(true);
 
-  // Control body overflow based on connection status
+  // Control body overflow - hide scrollbar only when ENGAGED
   useEffect(() => {
-    if (!isConnected) {
+    if (isConnected) {
       document.documentElement.style.overflow = 'hidden';
       document.body.style.overflow = 'hidden';
     } else {

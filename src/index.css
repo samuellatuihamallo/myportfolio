@@ -129,10 +129,11 @@
   display: none;
 }
 
-/* Allow default scrolling behavior */
+/* Allow default scrolling behavior - controlled by JS */
 html, body {
   height: 100%;
 }
+
 
 
 
