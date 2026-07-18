@@ -113,7 +113,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
                   required
                   value={tempName}
                   onChange={(e) => setTempName(e.target.value)}
-                  placeholder="e.g. OPERATOR_01"
+                  placeholder="e.g. SAMUEL L"
                   className="bg-black/30 border border-white/10 focus:border-hud-blue rounded-lg px-3.5 py-2.5 text-xs text-white outline-none font-mono tracking-wider uppercase"
                 />
               </div>
