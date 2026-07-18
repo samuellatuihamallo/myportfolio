@@ -38,9 +38,8 @@ import {
   Terminal, 
   Settings, 
   Radio,
-  Cpu,
-  Power,
   Zap,
+  Power,
   HardDrive
 } from 'lucide-react';
 
@@ -99,21 +98,6 @@ export default function App() {
 
   // System link state
   const [isConnected, setIsConnected] = useState(true);
-
-  // Control body overflow - hide vertical scrollbar only when disconnected
-  useEffect(() => {
-    if (!isConnected) {
-      document.documentElement.style.overflowY = 'hidden';
-      document.body.style.overflowY = 'hidden';
-    } else {
-      document.documentElement.style.overflowY = 'auto';
-      document.body.style.overflowY = 'auto';
-    }
-    return () => {
-      document.documentElement.style.overflowY = 'auto';
-      document.body.style.overflowY = 'auto';
-    };
-  }, [isConnected]);
 
   // Sync to local storage
   useEffect(() => {
@@ -202,7 +186,7 @@ export default function App() {
 
       if (newXp >= nextThreshold) {
         newLvl += 1;
-        pointsToGive = 5; // award stat/skill points on level up!
+        pointsToGive = 5;
         nextThreshold = Math.floor(nextThreshold * 1.25);
       }
 
@@ -216,48 +200,41 @@ export default function App() {
     });
 
     if (skillReward) {
-      // Unlock associated skill node if completed
       setSkills((prev) =>
         prev.map((s) => (s.name.includes(skillReward) ? { ...s, unlocked: true } : s))
       );
     }
   };
 
-  // Adds a custom quest
   const handleAddQuest = (newQuest: Quest) => {
     setQuests((prev) => [newQuest, ...prev]);
   };
 
-  // Deletes custom quests
   const handleDeleteQuest = (id: string) => {
     setQuests((prev) => prev.filter((q) => q.id !== id));
   };
 
-  // Equips / Unequips items from Armory and applies modifiers
   const handleToggleEquip = (id: string) => {
     setArmory((prev) =>
       prev.map((item) => {
         if (item.id === id) {
           const nextEquipped = !item.equipped;
           
-          // Apply/Remove stat modifiers dynamically
           if (nextEquipped) {
-            // Equipped: Boost stats
-            if (item.id === 'a1') { // Apex Shell
+            if (item.id === 'a1') {
               adjustStat('AGILITY', 4);
               adjustStat('STAMINA', 2);
-            } else if (item.id === 'a2') { // VS Code
+            } else if (item.id === 'a2') {
               adjustStat('INTELLIGENCE', 5);
-            } else if (item.id === 'a3') { // Tailwind Suit
+            } else if (item.id === 'a3') {
               adjustStat('AGILITY', 8);
-            } else if (item.id === 'a4') { // Vite Reactor
+            } else if (item.id === 'a4') {
               adjustStat('STAMINA', 6);
-            } else if (item.id === 'a5') { // Gemini Core
+            } else if (item.id === 'a5') {
               adjustStat('INTELLIGENCE', 10);
               adjustStat('CHARISMA', 4);
             }
           } else {
-            // Unequipped: Revert boosts
             if (item.id === 'a1') {
               adjustStat('AGILITY', -4);
               adjustStat('STAMINA', -2);
@@ -286,7 +263,6 @@ export default function App() {
     );
   };
 
-  // Registers a new transmitted message
   const handleSendMessage = (newMsg: Omit<UplinkMessage, 'id' | 'timestamp' | 'status'>) => {
     const formatted: UplinkMessage = {
       ...newMsg,
@@ -296,14 +272,12 @@ export default function App() {
     };
     setUplinks((prev) => [formatted, ...prev]);
 
-    // Give some XP reward for submitting a portfolio link!
     setProfile((prev) => ({
       ...prev,
       xp: prev.xp + 1500,
     }));
   };
 
-  // Master reset
   const handleResetDatabase = () => {
     localStorage.clear();
     setProfile(INITIAL_PROFILE);
@@ -322,7 +296,6 @@ export default function App() {
     setIsConnected(!isConnected);
   };
 
-  // Get current styling classes based on hue color
   const getAccentBorderClass = (tabName: string) => {
     if (activeTab === tabName) {
       if (hueColor === 'hud-green') return 'border-hud-green text-hud-green bg-hud-green/10 font-bold';
@@ -340,16 +313,12 @@ export default function App() {
     return 'text-hud-blue drop-shadow-[0_0_8px_rgba(0,240,255,0.4)]';
   };
 
-  const getThemeBgClass = () => {
-    if (hueColor === 'hud-green') return 'bg-hud-green';
-    if (hueColor === 'hud-purple') return 'bg-hud-purple';
-    if (hueColor === 'hud-amber') return 'bg-amber-400';
-    return 'bg-hud-blue';
-  };
-
   return (
-    <div className="min-h-screen bg-hud-dark-950 text-hud-text font-sans relative flex flex-col overflow-x-hidden hud-grid-bg">
-      
+    <div 
+      className={`min-h-screen bg-hud-dark-950 text-hud-text font-sans relative flex flex-col overflow-x-hidden hud-grid-bg ${
+        !isConnected ? 'h-screen overflow-y-hidden' : ''
+      }`}
+    >
       {/* Immersive UI Atmospheric Background Glows */}
       <div className="absolute top-[-200px] left-[-200px] w-[600px] h-[600px] glow-purple pulse pointer-events-none z-0" />
       <div className="absolute bottom-[-300px] right-[-100px] w-[800px] h-[800px] glow-purple pulse pointer-events-none z-0" style={{ animationDelay: '-1.5s' }} />
@@ -368,7 +337,6 @@ export default function App() {
           </h1>
         </div>
 
-        {/* Global mini states */}
         <div className="flex items-center gap-5">
           <div className="hidden sm:flex items-center gap-1.5 text-[10px] font-mono text-hud-text-dim uppercase">
             <Radio className="w-3.5 h-3.5 animate-pulse text-hud-green" />
@@ -376,13 +344,11 @@ export default function App() {
           </div>
 
           <div className="flex items-center gap-2.5">
-            {/* Operator Quick Stats Panel */}
             <div className="text-right flex flex-col">
               <span className="text-[9px] font-mono text-hud-text-dim tracking-wider uppercase">OPERATOR</span>
               <span className="text-xs font-mono font-bold text-white uppercase">{profile.name}</span>
             </div>
             
-            {/* Operator Avatar circle */}
             <div className={`w-8 h-8 rounded-full border border-white/10 overflow-hidden relative ${getThemeTextGlow()}`}>
               <div className="absolute inset-0 bg-gradient-to-tr from-hud-blue/25 to-hud-purple/25" />
               <img 
@@ -399,10 +365,8 @@ export default function App() {
       {/* CORE GRID BODY WORKSPACE */}
       <div className="flex-1 flex flex-col md:flex-row relative z-20 w-full max-w-7xl mx-auto p-4 md:p-6 gap-6">
         
-        {/* SIDEBAR NAVIGATION PANEL (1/4 width on desktop) */}
+        {/* SIDEBAR NAVIGATION PANEL */}
         <aside className="md:w-64 shrink-0 flex flex-col gap-5">
-          
-          {/* Operator general stats summary block */}
           <div className="hud-glass p-5 rounded-xl border border-white/10 relative overflow-hidden flex flex-col gap-3">
             <div className="flex justify-between items-start">
               <div className="flex flex-col">
@@ -418,7 +382,6 @@ export default function App() {
               </span>
             </div>
 
-            {/* Connection Status Button */}
             <button
               onClick={handleConnectToggle}
               className={`w-full py-2.5 px-4 rounded-lg font-mono text-[10px] tracking-wider uppercase flex items-center justify-center gap-2 transition-all cursor-pointer ${
@@ -432,7 +395,6 @@ export default function App() {
             </button>
           </div>
 
-          {/* Nav links */}
           <nav className="flex flex-col gap-1.5">
             {[
               { id: 'DASHBOARD', label: 'DASHBOARD', icon: <LayoutDashboard className="w-4 h-4" /> },
@@ -457,7 +419,6 @@ export default function App() {
             ))}
           </nav>
 
-          {/* Bottom Settings Button */}
           <div className="mt-auto">
             <button
               onClick={() => {
@@ -478,7 +439,7 @@ export default function App() {
         <main className="flex-1 min-w-0 flex flex-col">
           {!isConnected ? (
             /* DISCONNECTED SYSTEM OVERRIDE TERMINAL WARNING */
-            <div className="hud-glass p-8 rounded-xl border border-red-500/30 bg-red-950/5 flex flex-col justify-center items-center text-center gap-5 min-h-[400px] animate-in fade-in duration-300 overflow-hidden">
+            <div className="hud-glass p-8 rounded-xl border border-red-500/30 bg-red-950/5 flex flex-col justify-center items-center text-center gap-5 min-h-[400px] flex-1 animate-in fade-in duration-300 overflow-hidden">
               <div className="p-4 bg-red-500/10 rounded-full border border-red-500/30 animate-pulse">
                 <Power className="w-10 h-10 text-red-500" />
               </div>
@@ -561,9 +522,8 @@ export default function App() {
 
       </div>
 
-      {/* CORE BOTTOM ARCHITECTURE TICKER DIAL (Mirroring Screen 2 bottom bar) */}
+      {/* CORE BOTTOM ARCHITECTURE TICKER DIAL */}
       <footer className="border-t border-white/5 bg-black/60 backdrop-blur-md px-6 py-3 relative z-30 flex flex-wrap justify-between items-center gap-4">
-        {/* Core details ticker */}
         <div className="flex flex-wrap items-center gap-x-5 gap-y-1 text-[10px] font-mono text-hud-text-dim">
           <div className="flex items-center gap-1.5">
             <span className="w-1.5 h-1.5 rounded-full bg-hud-green" />
@@ -577,7 +537,6 @@ export default function App() {
           <div>SECURITY_ENCRYPTION: ACTIVE</div>
         </div>
 
-        {/* Geo Coords and Sync indicator */}
         <div className="flex items-center gap-4 text-[10px] font-mono text-hud-text-dim">
           <div className="hidden md:flex items-center gap-1">
             <HardDrive className="w-3.5 h-3.5" />
@@ -588,8 +547,6 @@ export default function App() {
           </span>
         </div>
       </footer>
-
     </div>
   );
 }
-
