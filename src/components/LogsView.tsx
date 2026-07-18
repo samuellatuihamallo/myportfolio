@@ -191,7 +191,7 @@ export const LogsView: React.FC<LogsViewProps> = ({
 
             {isTransmitting ? (
               /* TRANSMITTING TERMINAL INTERACTIVE SCREEN */
-              <div className="bg-black/60 border border-hud-blue/30 rounded-lg p-5 font-mono text-xs text-hud-blue space-y-2 h-[260px] overflow-y-auto">
+              <div className="bg-black/60 border border-hud-blue/30 rounded-lg p-5 font-mono text-xs text-hud-blue space-y-2 h-[260px] overflow-y-auto scrollbar-thin">
                 <div className="flex justify-between items-center text-[10px] text-hud-text-dim border-b border-hud-blue/20 pb-1.5 mb-3">
                   <div className="flex items-center gap-2">
                     <Terminal className="w-3.5 h-3.5" />
