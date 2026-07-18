@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Hanken+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Sora", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-hud-blue: #8B5CF6;       /* Violet/Purple neon */
+  --color-hud-green: #4ade80;      /* Emerald Green neon for optimal state */
+  --color-hud-purple: #D946EF;     /* Hot Pink/Magenta neon */
+  --color-hud-dark-950: #050508;    /* Deep space background */
+  --color-hud-dark-900: #090912;    /* Slightly lighter container base */
+  --color-hud-dark-800: #12121f;    /* High contrast dark element */
+  --color-hud-dark-700: #1b1b2a;
+  --color-hud-dark-600: #2a2a3f;
+  --color-hud-text: #d1d5db;       /* Sleek gray-300 */
+  --color-hud-text-dim: #9ca3af;   /* Soft gray-400 */
+}
+
+/* Atmospheric Background Glows for Immersive UI */
+.glow-purple {
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
+}
+
+.pulse {
+  animation: pulse-glow 3s infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+.neon-text {
+  text-shadow: 0 0 10px rgba(167, 139, 250, 0.5);
+}
+
+.progress-bar-gradient {
+  background: linear-gradient(90deg, #8B5CF6 0%, #D946EF 100%);
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.4);
+}
+
+/* Custom styles for HUD scanlines and glowing components */
+.hud-scanlines {
+  background: linear-gradient(
+    rgba(5, 5, 8, 0) 50%,
+    rgba(0, 0, 0, 0.3) 50%
+  ), linear-gradient(
+    90deg,
+    rgba(139, 92, 246, 0.04),
+    rgba(217, 70, 239, 0.02),
+    rgba(74, 222, 128, 0.03)
+  );
+  background-size: 100% 4px, 6px 100%;
+}
+
+.hud-glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px; /* Immersive UI 24px rounded corners */
+}
+
+.hud-glass-hover:hover {
+  border-color: rgba(139, 92, 246, 0.3);
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.15);
+}
+
+.hud-border-gradient {
+  border-image: linear-gradient(to bottom right, rgba(139, 92, 246, 0.2), rgba(217, 70, 239, 0.05)) 1;
+}
+
+/* 45-degree clipped corner styles */
+.hud-clip-br {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%);
+}
+
+.hud-clip-bl {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+}
+
+.hud-clip-tr {
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
+}
+
+.hud-clip-tl {
+  clip-path: polygon(12px 0, 100% 0, 100% 100%, 0 100%, 0 12px);
+}
+
+.hud-clip-corners {
+  clip-path: polygon(12px 0, calc(100% - 12px) 0, 100% 12px, 100% calc(100% - 12px), calc(100% - 12px) 100%, 12px 100%, 0 calc(100% - 12px), 0 12px);
+}
+
+@keyframes scan {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 100%;
+  }
+}
+
+.hud-grid-bg {
+  background-size: 50px 50px;
+  background-image: 
+    linear-gradient(to right, rgba(139, 92, 246, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(139, 92, 246, 0.02) 1px, transparent 1px);
+}
+

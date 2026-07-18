@@ -1,0 +1,6 @@
+{
+  "name": "Kinetic HUD",
+  "description": "A futuristic cyber-sleek developer portfolio and interactive RPG command center HUD.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
