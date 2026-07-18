@@ -199,7 +199,7 @@ export const QuestsView: React.FC<QuestsViewProps> = ({
         </div>
 
         {/* Quests Scroll List */}
-        <div className="flex flex-col gap-2.5 max-h-[600px] overflow-y-auto pr-1">
+        <div className="flex flex-col gap-2.5 max-h-[600px] overflow-y-auto pr-1 scrollbar-hidden">
           {filteredQuests.length === 0 ? (
             <div className="text-center py-12 hud-glass rounded-lg text-hud-text-dim text-sm">
               No quests detected in this network node.
