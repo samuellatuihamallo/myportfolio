@@ -38,7 +38,6 @@ import {
   Terminal, 
   Settings, 
   Radio,
-  Zap,
   Power,
   HardDrive
 } from 'lucide-react';
@@ -356,8 +355,8 @@ export default function App() {
       {/* HEADER BANNER FOR GENERAL SYSTEM STATUS */}
       <header className="border-b border-white/5 bg-black/40 backdrop-blur-md px-6 py-4 flex flex-wrap justify-between items-center gap-4 relative z-30 shrink-0">
         <div className="flex items-center gap-2">
-          <Zap className={`w-5 h-5 ${getThemeTextGlow()}`} />
-          <h1 className="text-lg font-display font-black tracking-wider uppercase flex items-center gap-2 neon-text">
+          {/* Ikon petir (Zap) telah dihilangkan dari baris ini */}
+          <h1 className="text-lg font-display font-black tracking-wider uppercase flex items-center gap-2 neon-text text-white">
             Portfolio Digital <span className="text-[11px] font-mono font-normal opacity-65 text-hud-purple"></span>
           </h1>
         </div>
@@ -371,7 +370,6 @@ export default function App() {
           <div className="flex items-center gap-2.5">
             <div className="text-right flex flex-col">
               <span className="text-[9px] font-mono text-hud-text-dim tracking-wider uppercase">OPERATOR</span>
-              {/* Diubah menjadi SAMUEL L */}
               <span className="text-xs font-mono font-bold text-white uppercase">SAMUEL L</span>
             </div>
             
@@ -396,7 +394,6 @@ export default function App() {
           <div className="hud-glass p-5 rounded-xl border border-white/10 relative overflow-hidden flex flex-col gap-3 shrink-0">
             <div className="flex justify-between items-start">
               <div className="flex flex-col">
-                {/* Diubah menjadi SAMUEL L */}
                 <span className="text-xs font-mono font-bold tracking-wider text-white uppercase">
                   SAMUEL L
                 </span>
