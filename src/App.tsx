@@ -463,7 +463,7 @@ export default function App() {
         <main className="flex-1 min-w-0 flex flex-col">
           {!isConnected ? (
             /* DISCONNECTED SYSTEM OVERRIDE TERMINAL WARNING */
-            <div className="hud-glass p-8 rounded-xl border border-red-500/30 bg-red-950/5 flex flex-col justify-center items-center text-center gap-5 min-h-[400px] animate-in fade-in duration-300">
+            <div className="hud-glass p-8 rounded-xl border border-red-500/30 bg-red-950/5 flex flex-col justify-center items-center text-center gap-5 min-h-[400px] animate-in fade-in duration-300 overflow-hidden">
               <div className="p-4 bg-red-500/10 rounded-full border border-red-500/30 animate-pulse">
                 <Power className="w-10 h-10 text-red-500" />
               </div>
