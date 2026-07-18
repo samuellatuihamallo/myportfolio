@@ -162,7 +162,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
 
           <div className="text-hud-text-dim text-sm space-y-4 leading-relaxed">
             <p>
-              Born in the sprawling digital district of Neo-Veridia, <span className="text-white font-semibold">Samuel L</span> emerged as a prodigy in the art of code-weaving. While others saw binary, they saw the flow of living systems. By the age of 19, they had already breached the central mainframe of the "Obsidian Collective," not to destroy, but to optimize.
+              Born in the sprawling digital district of Neo-Veridia, <span className="text-white font-semibold">Samuel LATUIHAMALLO</span> emerged as a prodigy in the art of code-weaving. While others saw binary, they saw the flow of living systems. By the age of 19, they had already breached the central mainframe of the "Obsidian Collective," not to destroy, but to optimize.
             </p>
           </div>
 
