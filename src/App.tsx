@@ -355,9 +355,9 @@ export default function App() {
       {/* HEADER BANNER FOR GENERAL SYSTEM STATUS */}
       <header className="border-b border-white/5 bg-black/40 backdrop-blur-md px-6 py-4 flex flex-wrap justify-between items-center gap-4 relative z-30 shrink-0">
         <div className="flex items-center gap-2">
-          {/* Ikon petir (Zap) telah dihilangkan dari baris ini */}
+          {/* Ikon petir tetap bersih, warna teks neon ungu tetap dipertahankan */}
           <h1 className="text-lg font-display font-black tracking-wider uppercase flex items-center gap-2 neon-text text-white">
-            Portfolio Digital <span className="text-[11px] font-mono font-normal opacity-65 text-hud-purple"></span>
+            Portfolio Digital <span className="text-[11px] font-mono font-normal text-hud-purple drop-shadow-[0_0_8px_rgba(112,0,255,0.4)]">v1.0.0</span>
           </h1>
         </div>
 
