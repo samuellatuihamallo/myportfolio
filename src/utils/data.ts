@@ -6,8 +6,8 @@
 import { CharacterProfile, AttributeStat, Quest, SkillNode, ArmoryItem, UplinkMessage } from '../types';
 
 export const INITIAL_PROFILE: CharacterProfile = {
-  name: 'OPERATOR_01',
-  title: 'KINETIC_ARCHITECT',
+  name: 'SAMUEL L',
+  title: ' • Port ',
   level: 99,
   xp: 82400,
   nextLevelXp: 100000,
