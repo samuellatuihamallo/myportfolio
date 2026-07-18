@@ -42,18 +42,21 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
   const getGlowTextClass = () => {
     if (hueColor === 'hud-green') return 'text-hud-green drop-shadow-[0_0_8px_rgba(57,255,20,0.5)]';
     if (hueColor === 'hud-purple') return 'text-hud-purple drop-shadow-[0_0_8px_rgba(112,0,255,0.5)]';
+    if (hueColor === 'hud-amber') return 'text-amber-400 drop-shadow-[0_0_8px_rgba(251,191,36,0.5)]';
     return 'text-hud-blue drop-shadow-[0_0_8px_rgba(0,240,255,0.5)]';
   };
 
   const getGlowBgClass = () => {
     if (hueColor === 'hud-green') return 'bg-hud-green shadow-[0_0_10px_rgba(57,255,20,0.4)]';
     if (hueColor === 'hud-purple') return 'bg-hud-purple shadow-[0_0_10px_rgba(112,0,255,0.4)]';
+    if (hueColor === 'hud-amber') return 'bg-amber-400 shadow-[0_0_10px_rgba(251,191,36,0.4)]';
     return 'bg-hud-blue shadow-[0_0_10px_rgba(0,240,255,0.4)]';
   };
 
   const getGlowBorderClass = () => {
     if (hueColor === 'hud-green') return 'border-hud-green/30 hover:border-hud-green/60';
     if (hueColor === 'hud-purple') return 'border-hud-purple/30 hover:border-hud-purple/60';
+    if (hueColor === 'hud-amber') return 'border-amber-400/30 hover:border-amber-400/60';
     return 'border-hud-blue/30 hover:border-hud-blue/60';
   };
 
@@ -85,8 +88,9 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
           </div>
 
           <div className="mb-6">
+            {/* Diubah menjadi • Port dengan glow dinamis */}
             <h1 className="text-4xl md:text-5xl font-display font-extrabold tracking-tight text-white mb-2">
-              MyPortfolio<span className={getGlowTextClass()}>{profile.title}</span>
+              MyPortfolio <span className={getGlowTextClass()}>• Port</span>
             </h1>
             <p className="text-hud-text-dim text-sm max-w-2xl font-sans leading-relaxed">
               LVL {Math.floor(profile.level / 11)} Experienced UI and UX Designer with a passion for creating immersive digital experiences, BACKEND DEVELOPER.
@@ -171,7 +175,6 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
               className="w-full h-auto aspect-[16/9] object-cover object-center transform group-hover:scale-105 transition-transform duration-500"
               referrerPolicy="no-referrer"
               onError={(e) => {
-                // Fallback if the generated image is not found
                 e.currentTarget.src = "https://picsum.photos/seed/cyberpunk/800/450";
               }}
             />
@@ -307,7 +310,6 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
                 <span className="text-hud-text-dim">FRONTEND ARCH</span>
                 <span className="text-hud-blue font-bold">95%</span>
               </div>
-              {/* Segmented Progress Block */}
               <div className="flex gap-1">
                 {Array.from({ length: 10 }).map((_, i) => (
                   <div 
@@ -328,7 +330,6 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
                 <span className="text-hud-text-dim">SYSTEMS DESIGN</span>
                 <span className="text-hud-green font-bold">88%</span>
               </div>
-              {/* Segmented Progress Block */}
               <div className="flex gap-1">
                 {Array.from({ length: 10 }).map((_, i) => (
                   <div 
@@ -349,7 +350,6 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
                 <span className="text-hud-text-dim">MOTION GRAPHICS</span>
                 <span className="text-hud-purple font-bold">72%</span>
               </div>
-              {/* Segmented Progress Block */}
               <div className="flex gap-1">
                 {Array.from({ length: 10 }).map((_, i) => (
                   <div 
