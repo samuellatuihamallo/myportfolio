@@ -180,9 +180,10 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
             </div>
           </div>
 
+          {/* DESKRIPSI DI BAWAH GAMBAR YANG SUDAH DIPERBARUI */}
           <div className="text-hud-text-dim text-sm space-y-4 leading-relaxed font-sans">
             <p>
-              Operating at the intersection of human intuition and raw machine precision, they specialize in bridging chaotic backend data streams with immersive, high-fidelity UI ecosystems. Driven by a commitment to full-stack optimization and design mastery, this operative continues to architect digital solutions that push the boundaries of modern engineering.
+              Specializing in full-stack orchestration, this operative is renowned for deploying high-efficiency management dashboards, securing core architecture through robust authentication networks, and designing responsive, multi-themed data interfaces. From automated utility scripting to fine-tuning database schemas, every routine is compiled to achieve absolute operational synergy and seamless user engagement.
             </p>
           </div>
 
