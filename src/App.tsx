@@ -322,32 +322,23 @@ export default function App() {
   };
 
   return (
-    <div 
-      className={`h-screen text-hud-text font-sans relative flex flex-col overflow-x-hidden hud-grid-bg bg-hud-dark-950 ${
-        !isConnected 
-          ? 'overflow-y-hidden' 
-          : 'overflow-y-auto'
-      }`}
-      style={isConnected ? {
-        scrollbarWidth: 'thin',
-        scrollbarColor: `${getScrollbarThumbColor()} rgba(0,0,0,0.1)`
-      } : undefined}
-    >
-      {/* CSS Injection Khusus untuk Webkit Engine (Chrome, Safari, Edge) agar scrollbar menjadi tipis/pendek dan estetik */}
+    <div className="h-screen text-hud-text font-sans relative flex flex-col overflow-hidden hud-grid-bg bg-hud-dark-950">
+      
+      {/* CSS Injection Khusus: Scrollbar tipis diletakkan hanya pada kelas .hud-scrollbar-y */}
       {isConnected && (
         <style dangerouslySetInnerHTML={{__html: `
-          div::-webkit-scrollbar {
+          .hud-scrollbar-y::-webkit-scrollbar {
             width: 5px;
             height: 5px;
           }
-          div::-webkit-scrollbar-track {
-            background: rgba(0, 0, 0, 0.1);
+          .hud-scrollbar-y::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.05);
           }
-          div::-webkit-scrollbar-thumb {
+          .hud-scrollbar-y::-webkit-scrollbar-thumb {
             background: ${getScrollbarThumbColor()};
             border-radius: 99px;
           }
-          div::-webkit-scrollbar-thumb:hover {
+          .hud-scrollbar-y::-webkit-scrollbar-thumb:hover {
             background: ${getScrollbarThumbColor().replace('0.3', '0.6')};
           }
         `}} />
@@ -397,11 +388,11 @@ export default function App() {
       </header>
 
       {/* CORE GRID BODY WORKSPACE */}
-      <div className="flex-1 flex flex-col md:flex-row relative z-20 w-full max-w-7xl mx-auto p-4 md:p-6 gap-6 min-h-0">
+      <div className="flex-1 flex flex-col md:flex-row relative z-20 w-full max-w-7xl mx-auto p-4 md:p-6 gap-6 min-h-0 overflow-hidden">
         
         {/* SIDEBAR NAVIGATION PANEL */}
-        <aside className="md:w-64 shrink-0 flex flex-col gap-5">
-          <div className="hud-glass p-5 rounded-xl border border-white/10 relative overflow-hidden flex flex-col gap-3">
+        <aside className="md:w-64 shrink-0 flex flex-col gap-5 h-full overflow-y-auto hud-scrollbar-y">
+          <div className="hud-glass p-5 rounded-xl border border-white/10 relative overflow-hidden flex flex-col gap-3 shrink-0">
             <div className="flex justify-between items-start">
               <div className="flex flex-col">
                 <span className="text-xs font-mono font-bold tracking-wider text-white uppercase">
@@ -429,7 +420,7 @@ export default function App() {
             </button>
           </div>
 
-          <nav className="flex flex-col gap-1.5">
+          <nav className="flex flex-col gap-1.5 shrink-0">
             {[
               { id: 'DASHBOARD', label: 'DASHBOARD', icon: <LayoutDashboard className="w-4 h-4" /> },
               { id: 'QUESTS', label: 'QUESTS_LOG', icon: <Target className="w-4 h-4" /> },
@@ -453,7 +444,7 @@ export default function App() {
             ))}
           </nav>
 
-          <div className="mt-auto">
+          <div className="mt-auto pt-4 shrink-0">
             <button
               onClick={() => {
                 audioSynth.playClick();
@@ -470,7 +461,15 @@ export default function App() {
         </aside>
 
         {/* MAIN DISPLAY TERMINAL SPACE */}
-        <main className="flex-1 min-w-0 flex flex-col">
+        <main 
+          className={`flex-1 min-w-0 flex flex-col ${
+            isConnected ? 'overflow-y-auto hud-scrollbar-y pr-1' : 'overflow-hidden'
+          }`}
+          style={isConnected ? {
+            scrollbarWidth: 'thin',
+            scrollbarColor: `${getScrollbarThumbColor()} rgba(0,0,0,0.05)`
+          } : undefined}
+        >
           {!isConnected ? (
             /* DISCONNECTED SYSTEM OVERRIDE TERMINAL WARNING */
             <div className="hud-glass p-8 rounded-xl border border-red-500/30 bg-red-950/5 flex flex-col justify-center items-center text-center gap-5 min-h-[400px] flex-1 animate-in fade-in duration-300 overflow-hidden">
