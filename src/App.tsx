@@ -358,7 +358,7 @@ export default function App() {
         <div className="flex items-center gap-2">
           <Zap className={`w-5 h-5 ${getThemeTextGlow()}`} />
           <h1 className="text-lg font-display font-black tracking-wider uppercase flex items-center gap-2 neon-text">
-            PortfolioDigital <span className="text-[11px] font-mono font-normal opacity-65 text-hud-purple">V2.0</span>
+            Portfolio Digital <span className="text-[11px] font-mono font-normal opacity-65 text-hud-purple">V2.0</span>
           </h1>
         </div>
 
