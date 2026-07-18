@@ -100,6 +100,18 @@ export default function App() {
   // System link state
   const [isConnected, setIsConnected] = useState(true);
 
+  // Control body overflow based on connection status
+  useEffect(() => {
+    if (!isConnected) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [isConnected]);
+
   // Sync to local storage
   useEffect(() => {
     localStorage.setItem('hud_profile', JSON.stringify(profile));

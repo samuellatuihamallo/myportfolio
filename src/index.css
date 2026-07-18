@@ -129,3 +129,14 @@
   display: none;
 }
 
+/* Hide browser scrollbar globally */
+html {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+
