@@ -150,7 +150,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
             <div className="flex items-center gap-2">
               <div className="w-2 h-4 bg-hud-blue rounded-sm" />
               <h2 className="text-lg font-display font-semibold text-white tracking-wide">
-                CHARACTER_LORE
+                MY_LORE
               </h2>
             </div>
             <span className="text-xs font-mono text-hud-text-dim">RECORD_FILE: 001-ALPHA</span>

@@ -43,8 +43,8 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
     e.preventDefault();
     audioSynth.playSuccess();
     onUpdateProfile({
-      name: tempName.trim().toUpperCase() || 'OPERATOR_01',
-      title: tempTitle.trim().toUpperCase() || 'KINETIC_ARCHITECT',
+      name: tempName.trim().toUpperCase() || 'SAMUEL L',
+      title: tempTitle.trim().toUpperCase() || ' • Port',
       objective: tempObjective.trim().toUpperCase() || 'SYSTEM OVERHAUL V2.0',
     });
   };

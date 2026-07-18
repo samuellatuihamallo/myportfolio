@@ -380,7 +380,7 @@ export const QuestsView: React.FC<QuestsViewProps> = ({
 
             {/* Execution / Code terminal block */}
             {isExecuting && (
-              <div className="flex-1 bg-black/80 border border-hud-blue/30 rounded-lg p-4 font-mono text-xs text-hud-blue space-y-1 h-44 overflow-y-auto scrollbar-thin">
+              <div className="flex-1 bg-black/80 border border-hud-blue/30 rounded-lg p-4 font-mono text-xs text-hud-blue space-y-1 h-44 overflow-y-auto">
                 <div className="flex justify-between items-center text-[10px] text-hud-text-dim border-b border-hud-blue/20 pb-1 mb-2">
                   <div className="flex items-center gap-1.5">
                     <Terminal className="w-3 h-3 text-hud-blue" />
