@@ -103,11 +103,14 @@ export default function App() {
   // Control body overflow based on connection status
   useEffect(() => {
     if (!isConnected) {
+      document.documentElement.style.overflow = 'hidden';
       document.body.style.overflow = 'hidden';
     } else {
+      document.documentElement.style.overflow = 'auto';
       document.body.style.overflow = 'auto';
     }
     return () => {
+      document.documentElement.style.overflow = 'auto';
       document.body.style.overflow = 'auto';
     };
   }, [isConnected]);
@@ -515,6 +518,7 @@ export default function App() {
                   onAddQuest={handleAddQuest}
                   onDeleteQuest={handleDeleteQuest}
                   profileLevel={profile.level}
+                  isConnected={isConnected}
                 />
               )}
               {activeTab === 'SKILLS' && (
