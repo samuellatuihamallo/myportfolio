@@ -313,12 +313,46 @@ export default function App() {
     return 'text-hud-blue drop-shadow-[0_0_8px_rgba(0,240,255,0.4)]';
   };
 
+  // Mendapatkan warna scrollbar thumb berdasarkan tema aktif HUD
+  const getScrollbarThumbColor = () => {
+    if (hueColor === 'hud-green') return 'rgba(57,255,20,0.3)';
+    if (hueColor === 'hud-purple') return 'rgba(112,0,255,0.3)';
+    if (hueColor === 'hud-amber') return 'rgba(251,191,36,0.3)';
+    return 'rgba(0,240,255,0.3)';
+  };
+
   return (
     <div 
-      className={`min-h-screen bg-hud-dark-950 text-hud-text font-sans relative flex flex-col overflow-x-hidden hud-grid-bg ${
-        !isConnected ? 'h-screen overflow-y-hidden' : ''
+      className={`h-screen text-hud-text font-sans relative flex flex-col overflow-x-hidden hud-grid-bg bg-hud-dark-950 ${
+        !isConnected 
+          ? 'overflow-y-hidden' 
+          : 'overflow-y-auto'
       }`}
+      style={isConnected ? {
+        scrollbarWidth: 'thin',
+        scrollbarColor: `${getScrollbarThumbColor()} rgba(0,0,0,0.1)`
+      } : undefined}
     >
+      {/* CSS Injection Khusus untuk Webkit Engine (Chrome, Safari, Edge) agar scrollbar menjadi tipis/pendek dan estetik */}
+      {isConnected && (
+        <style dangerouslySetInnerHTML={{__html: `
+          div::-webkit-scrollbar {
+            width: 5px;
+            height: 5px;
+          }
+          div::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.1);
+          }
+          div::-webkit-scrollbar-thumb {
+            background: ${getScrollbarThumbColor()};
+            border-radius: 99px;
+          }
+          div::-webkit-scrollbar-thumb:hover {
+            background: ${getScrollbarThumbColor().replace('0.3', '0.6')};
+          }
+        `}} />
+      )}
+
       {/* Immersive UI Atmospheric Background Glows */}
       <div className="absolute top-[-200px] left-[-200px] w-[600px] h-[600px] glow-purple pulse pointer-events-none z-0" />
       <div className="absolute bottom-[-300px] right-[-100px] w-[800px] h-[800px] glow-purple pulse pointer-events-none z-0" style={{ animationDelay: '-1.5s' }} />
@@ -329,7 +363,7 @@ export default function App() {
       )}
 
       {/* HEADER BANNER FOR GENERAL SYSTEM STATUS */}
-      <header className="border-b border-white/5 bg-black/40 backdrop-blur-md px-6 py-4 flex flex-wrap justify-between items-center gap-4 relative z-30">
+      <header className="border-b border-white/5 bg-black/40 backdrop-blur-md px-6 py-4 flex flex-wrap justify-between items-center gap-4 relative z-30 shrink-0">
         <div className="flex items-center gap-2">
           <Zap className={`w-5 h-5 ${getThemeTextGlow()}`} />
           <h1 className="text-lg font-display font-black tracking-wider uppercase flex items-center gap-2 neon-text">
@@ -363,7 +397,7 @@ export default function App() {
       </header>
 
       {/* CORE GRID BODY WORKSPACE */}
-      <div className="flex-1 flex flex-col md:flex-row relative z-20 w-full max-w-7xl mx-auto p-4 md:p-6 gap-6">
+      <div className="flex-1 flex flex-col md:flex-row relative z-20 w-full max-w-7xl mx-auto p-4 md:p-6 gap-6 min-h-0">
         
         {/* SIDEBAR NAVIGATION PANEL */}
         <aside className="md:w-64 shrink-0 flex flex-col gap-5">
@@ -523,7 +557,7 @@ export default function App() {
       </div>
 
       {/* CORE BOTTOM ARCHITECTURE TICKER DIAL */}
-      <footer className="border-t border-white/5 bg-black/60 backdrop-blur-md px-6 py-3 relative z-30 flex flex-wrap justify-between items-center gap-4">
+      <footer className="border-t border-white/5 bg-black/60 backdrop-blur-md px-6 py-3 relative z-30 flex flex-wrap justify-between items-center gap-4 shrink-0">
         <div className="flex flex-wrap items-center gap-x-5 gap-y-1 text-[10px] font-mono text-hud-text-dim">
           <div className="flex items-center gap-1.5">
             <span className="w-1.5 h-1.5 rounded-full bg-hud-green" />
