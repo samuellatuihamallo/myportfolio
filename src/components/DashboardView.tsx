@@ -5,7 +5,7 @@
 
 import React from 'react';
 import { CharacterProfile, AttributeStat, Quest, SkillNode, StatType } from '../types';
-import { Shield, Rocket, ArrowUpRight, Zap, Target, BookOpen } from 'lucide-react';
+import { Shield, Rocket, ArrowUpRight, Target, BookOpen } from 'lucide-react';
 import { audioSynth } from '../utils/audio';
 
 interface DashboardViewProps {
@@ -53,13 +53,6 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
     return 'bg-hud-blue shadow-[0_0_10px_rgba(0,240,255,0.4)]';
   };
 
-  const getGlowBorderClass = () => {
-    if (hueColor === 'hud-green') return 'border-hud-green/30 hover:border-hud-green/60';
-    if (hueColor === 'hud-purple') return 'border-hud-purple/30 hover:border-hud-purple/60';
-    if (hueColor === 'hud-amber') return 'border-amber-400/30 hover:border-amber-400/60';
-    return 'border-hud-blue/30 hover:border-hud-blue/60';
-  };
-
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 w-full" id="dashboard_view">
       {/* Left Column: Stats and Lore (8/12 width) */}
@@ -88,7 +81,6 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
           </div>
 
           <div className="mb-6">
-            {/* Diubah menjadi • Port dengan glow dinamis */}
             <h1 className="text-4xl md:text-5xl font-display font-extrabold tracking-tight text-white mb-2">
               MyPortfolio <span className={getGlowTextClass()}>• Port</span>
             </h1>
@@ -160,9 +152,9 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
             <span className="text-xs font-mono text-hud-text-dim">RECORD_FILE: 001-ALPHA</span>
           </div>
 
-          <div className="text-hud-text-dim text-sm space-y-4 leading-relaxed">
+          <div className="text-hud-text-dim text-sm space-y-4 leading-relaxed font-sans">
             <p>
-              Born in the sprawling digital district of Neo-Veridia, <span className="text-white font-semibold">Samuel LATUIHAMALLO</span> emerged as a prodigy in the art of code-weaving. While others saw binary, they saw the flow of living systems. By the age of 19, they had already breached the central mainframe of the "Obsidian Collective," not to destroy, but to optimize.
+              Initiated into the digital grid on <span className="text-white font-mono">2006-08-19</span> within the sprawling techno-industrial hub of Bekasi, <span className="text-white font-semibold tracking-wide">Samuel Latuihamallo</span> rapidly manifested a profound affinity for complex code architecture. What began as an innate curiosity quickly evolved into a masterful understanding of both elegant frontend interfaces and robust backend logic.
             </p>
           </div>
 
@@ -188,9 +180,9 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
             </div>
           </div>
 
-          <div className="text-hud-text-dim text-sm space-y-4 leading-relaxed">
+          <div className="text-hud-text-dim text-sm space-y-4 leading-relaxed font-sans">
             <p>
-              Today, they serve as a freelance Kinetic Architect, navigating the complex hierarchies of corporate meta-structures. Their mission: to bring order to the chaos of fragmented data streams and build interfaces that bridge the gap between human intuition and machine precision. Their reputation for "Digital Mastery" is earned through every line of flawless execution.
+              Operating at the intersection of human intuition and raw machine precision, they specialize in bridging chaotic backend data streams with immersive, high-fidelity UI ecosystems. Driven by a commitment to full-stack optimization and design mastery, this operative continues to architect digital solutions that push the boundaries of modern engineering.
             </p>
           </div>
 
