@@ -73,7 +73,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
           <div className="flex flex-wrap justify-between items-center gap-2 mb-4 border-b border-white/5 pb-3">
             <div className="flex items-center gap-3">
               <span className={`text-[10px] font-mono tracking-wider px-2 py-0.5 rounded border border-hud-blue/20 bg-hud-blue/5 text-hud-blue`}>
-                RANK: LEGENDARY
+                RANK: EXPERIENCED
               </span>
               <span className="text-[10px] font-mono text-hud-text-dim">
                 SYSTEM_UID: 8842-X
@@ -86,10 +86,10 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
 
           <div className="mb-6">
             <h1 className="text-4xl md:text-5xl font-display font-extrabold tracking-tight text-white mb-2">
-              KINETIC_<span className={getGlowTextClass()}>{profile.title}</span>
+              MyPortfolio<span className={getGlowTextClass()}>{profile.title}</span>
             </h1>
             <p className="text-hud-text-dim text-sm max-w-2xl font-sans leading-relaxed">
-              LVL {Math.floor(profile.level / 10)} Senior Developer specializing in High-Performance UI Architectures, Complex React Environments, and Neural Workspace Interfaces.
+              LVL {Math.floor(profile.level / 11)} Experienced UI and UX Designer with a passion for creating immersive digital experiences, BACKEND DEVELOPER.
             </p>
           </div>
 
