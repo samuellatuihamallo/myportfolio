@@ -154,7 +154,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
 
           <div className="text-hud-text-dim text-sm space-y-4 leading-relaxed font-sans">
             <p>
-              Initiated into the digital grid on <span className="text-white font-mono">2021-08-19</span> within the sprawling techno-industrial hub of Bekasi, <span className="text-white font-semibold tracking-wide">Samuel Latuihamallo</span> rapidly manifested a profound affinity for complex code architecture. What began as an innate curiosity quickly evolved into a masterful understanding of both elegant frontend interfaces and robust backend logic.
+              Initiated into the digital grid on <span className="text-white font-mono">2021-08-19</span> within the sprawling techno-industrial hub of Solo, <span className="text-white font-semibold tracking-wide">Samuel Latuihamallo</span> rapidly manifested a profound affinity for complex code architecture. What began as an innate curiosity quickly evolved into a masterful understanding of both elegant frontend interfaces and robust backend logic.
             </p>
           </div>
 
