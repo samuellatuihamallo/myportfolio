@@ -477,17 +477,17 @@ export default function App() {
               </div>
               <div>
                 <h2 className="text-xl font-display font-black text-white uppercase tracking-wider">
-                  SYSTEM_LINK_DISENGAGED // MAIN_SHIELDS_OFFLINE
+                  SYSTEM_OFFLINE // LINK_DISCONNECTED
                 </h2>
                 <p className="text-hud-text-dim text-xs font-mono max-w-md mt-2 leading-relaxed">
-                  The local security interface has been disconnected from the secure corporate mainframe. Re-engage the master linkage inside the operator profile log card to regain access.
+                  Koneksi ke sistem utama terputus. Silakan aktifkan kembali melalui tombol "ENGAGE" pada panel kontrol di sebelah kiri, atau tekan tombol di bawah untuk memulihkan akses dashboard.
                 </p>
               </div>
               <button
                 onClick={handleConnectToggle}
                 className="px-6 py-2.5 bg-red-500 hover:bg-red-600 text-black font-display font-extrabold text-xs tracking-widest rounded-lg transition-all cursor-pointer"
               >
-                ENGAGE LINKAGE MAIN
+                CONNECT TO SYSTEM
               </button>
             </div>
           ) : (
