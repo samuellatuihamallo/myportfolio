@@ -143,7 +143,7 @@ export const LogsView: React.FC<LogsViewProps> = ({
             </button>
 
             <button
-              onClick={() => handleSocialClick('GitHub', 'https://github.com/')}
+              onClick={() => handleSocialClick('GitHub', 'https://github.com/samuellatuihamallo')}
               className="hud-glass p-3.5 rounded-xl border border-white/5 hover:border-hud-green/40 bg-white/[0.01] hover:bg-hud-green/[0.02] flex items-center justify-between group transition-all cursor-pointer"
             >
               <div className="flex flex-col items-start text-left">
