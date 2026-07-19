@@ -45,7 +45,7 @@ export const LogsView: React.FC<LogsViewProps> = ({
       'ESTABLISHING SECURE MULTI-NODE CONDUIT...',
       'TUNNEL: ROTATING SECURITY PACKETS (AES-256-GCM)...',
       'BYPASSING DEFENSIVE MAIN SYSTEM FIREWALLS...',
-      'PACKET ROUTING SUCCESSFUL // TOKYO_NODE_03',
+      'PACKET ROUTING SUCCESSFUL // JAKARTA_NODE_01',
       'UPLINK STABILIZED // FLUX COMPLETED.'
     ];
 
@@ -113,7 +113,7 @@ export const LogsView: React.FC<LogsViewProps> = ({
           <div className="hud-glass p-4 rounded-xl border border-white/5 bg-white/[0.01]">
             <span className="text-[9px] font-mono text-hud-text-dim tracking-widest uppercase block mb-1">CURRENT_ZONE</span>
             <span className="text-md font-display font-bold text-white uppercase tracking-wide">
-              TOKYO_REGION-03
+              INDONESIA_WEST-01
             </span>
           </div>
 
@@ -121,7 +121,7 @@ export const LogsView: React.FC<LogsViewProps> = ({
           <div className="hud-glass p-4 rounded-xl border border-white/5 bg-white/[0.01]">
             <span className="text-[9px] font-mono text-hud-text-dim tracking-widest uppercase block mb-1">OPERATING_WINDOW</span>
             <span className="text-md font-display font-bold text-white uppercase tracking-wide">
-              09:00 - 18:00 JST
+              08:00 - 21:00 WIB
             </span>
           </div>
 
