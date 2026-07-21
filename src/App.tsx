@@ -355,7 +355,6 @@ export default function App() {
       {/* HEADER BANNER FOR GENERAL SYSTEM STATUS */}
       <header className="border-b border-white/5 bg-black/40 backdrop-blur-md px-6 py-4 flex flex-wrap justify-between items-center gap-4 relative z-30 shrink-0">
         <div className="flex items-center gap-2">
-          {/* Ikon petir tetap bersih, warna teks neon ungu tetap dipertahankan */}
           <h1 className="text-lg font-display font-black tracking-wider uppercase flex items-center gap-2 neon-text text-white">
             Portfolio Digital <span className="text-[11px] font-mono font-normal text-hud-purple drop-shadow-[0_0_8px_rgba(112,0,255,0.4)]"></span>
           </h1>
@@ -370,7 +369,8 @@ export default function App() {
           <div className="flex items-center gap-2.5">
             <div className="text-right flex flex-col">
               <span className="text-[9px] font-mono text-hud-text-dim tracking-wider uppercase">OPERATOR</span>
-              <span className="text-xs font-mono font-bold text-white uppercase">SAMUEL L</span>
+              {/* Dinamis mengikuti state profile */}
+              <span className="text-xs font-mono font-bold text-white uppercase">{profile.name}</span>
             </div>
             
             <div className={`w-8 h-8 rounded-full border border-white/10 overflow-hidden relative ${getThemeTextGlow()}`}>
@@ -394,11 +394,12 @@ export default function App() {
           <div className="hud-glass p-5 rounded-xl border border-white/10 relative overflow-hidden flex flex-col gap-3 shrink-0">
             <div className="flex justify-between items-start">
               <div className="flex flex-col">
+                {/* Dinamis mengikuti state profile */}
                 <span className="text-xs font-mono font-bold tracking-wider text-white uppercase">
-                  SAMUEL L
+                  {profile.name}
                 </span>
                 <span className="text-[9px] font-mono text-hud-text-dim uppercase mt-0.5">
-                  LVL {Math.floor(profile.level / 10)} FULLSTACK
+                  LVL {profile.level} {profile.title}
                 </span>
               </div>
               <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded ${getThemeTextGlow()} bg-white/5`}>
