@@ -167,7 +167,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
               className="w-full h-auto aspect-[16/9] object-cover object-center transform group-hover:scale-105 transition-transform duration-500"
               referrerPolicy="no-referrer"
               onError={(e) => {
-                e.currentTarget.src = "https://picsum.photos/seed/cyberpunk/800/450";
+                e.currentTarget.src = "/src/assets/images/portfolio.png"; // Fallback image
               }}
             />
             {/* Holographic scanning overlay */}
