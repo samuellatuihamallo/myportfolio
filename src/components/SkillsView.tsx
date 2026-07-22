@@ -18,39 +18,44 @@ export interface Certificate {
   credentialUrl?: string;
   category: 'FRONTEND' | 'SYSTEMS' | 'MOTION_GRAPHICS' | 'GENERAL';
   skillsVerified: string[];
+  modulesCompleted?: string[];
 }
 
-// Mock Data Sertifikat Default (Dapat disesuaikan atau dilempar via Props)
+// Data Sertifikat Default - AI Ready ASEAN (Samuel Latuihamallo)
 const DEFAULT_CERTIFICATES: Certificate[] = [
   {
-    id: 'cert-1',
-    title: 'Advanced React & TypeScript Architecture',
-    issuer: 'Meta / Coursera',
-    issueDate: '2023-11-15',
-    credentialId: 'META-REACT-88902',
-    credentialUrl: 'https://example.com/verify/META-REACT-88902',
-    category: 'FRONTEND',
-    skillsVerified: ['React', 'TypeScript', 'State Management'],
-  },
-  {
-    id: 'cert-2',
-    title: 'AWS Certified Solutions Architect',
-    issuer: 'Amazon Web Services',
-    issueDate: '2024-02-10',
-    credentialId: 'AWS-ASA-99411',
-    credentialUrl: 'https://example.com/verify/AWS-ASA-99411',
-    category: 'SYSTEMS',
-    skillsVerified: ['Cloud Infrastructure', 'Node.js', 'System Security'],
-  },
-  {
-    id: 'cert-3',
-    title: 'Interactive UI Animation & Motion Design',
-    issuer: 'School of Motion',
-    issueDate: '2023-08-20',
-    credentialId: 'SOM-MOTION-3312',
-    credentialUrl: 'https://example.com/verify/SOM-MOTION-3312',
-    category: 'MOTION_GRAPHICS',
-    skillsVerified: ['Framer Motion', 'Canvas/WebGL', 'UI Transitions'],
+    id: 'cert-ai-ready-asean',
+    title: 'AI Ready ASEAN - Youth Module Completion',
+    issuer: 'ASEAN Foundation (Supported by Google.org)',
+    issueDate: '2026-07-20',
+    credentialId: 'ASEAN-AI-YOUTH-2026',
+    credentialUrl: 'https://www.AIClassASEAN.org',
+    category: 'GENERAL',
+    skillsVerified: [
+      'Generative AI',
+      'Prompt Engineering',
+      'AI Ethics & Responsible AI',
+      'Data Privacy & Safety',
+      'AI Content Creation',
+      'AI Tool Development'
+    ],
+    modulesCompleted: [
+      'Introduction to AI',
+      'Variety of AI',
+      'AI for Everyday Life',
+      'Career Opportunity in the Era of AI',
+      'Work Smarter not Harder Maximize Productivity with AI',
+      'AI Ethics & Responsible AI Use',
+      'Ethical AI Usage - Plagiarism & Copyright Issues',
+      'Data Privacy & AI Safety',
+      'The Future of AI Development: AI for Social Good',
+      'Fundamental of Generative AI',
+      'AI for Content Creation',
+      'AI for Social Media',
+      'AI Prompts 101-How to Talk to AI',
+      'AI in Combating Fake News, Hoax & Misinformation',
+      'Fundamental to Develop AI-Learn to create a simple AI-Based Tools'
+    ]
   },
 ];
 
@@ -273,7 +278,7 @@ export const SkillsView: React.FC<SkillsViewProps> = ({
           Every point invested increases cognitive efficiency. Gaining higher levels releases structural point pools, bypassing previous threshold gates to allow complex WebGL rendering, and full-stack Express socket pipeline allocations.
         </div>
 
-        {/* BAGIAN BARU: CERTIFICATES & CREDENTIALS SECTION */}
+        {/* BAGIAN CERTIFICATES & CREDENTIALS SECTION */}
         <div className="hud-glass p-6 rounded-xl border border-white/10 flex flex-col gap-5" id="certificates_section">
           <div className="flex justify-between items-center border-b border-white/5 pb-3">
             <div className="flex items-center gap-2">
@@ -288,23 +293,23 @@ export const SkillsView: React.FC<SkillsViewProps> = ({
           </div>
 
           {/* Certificates Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 gap-4">
             {certificates.map((cert) => (
               <div 
                 key={cert.id}
-                className="p-4 rounded-lg border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] hover:border-white/20 transition-all flex flex-col justify-between gap-3 group relative"
+                className="p-5 rounded-lg border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] hover:border-white/20 transition-all flex flex-col justify-between gap-4 group relative"
               >
                 <div>
                   <div className="flex justify-between items-start gap-2 mb-2">
                     <span className="text-[9px] font-mono text-hud-green bg-hud-green/10 border border-hud-green/30 px-2 py-0.5 rounded flex items-center gap-1">
-                      <ShieldCheck className="w-3 h-3" /> VERIFIED
+                      <ShieldCheck className="w-3 h-3" /> VERIFIED CREDENTIAL
                     </span>
                     <span className="text-[10px] font-mono text-hud-text-dim">
                       {cert.issueDate}
                     </span>
                   </div>
 
-                  <h4 className="text-sm font-display font-bold text-white group-hover:text-hud-green transition-colors leading-snug">
+                  <h4 className="text-base font-display font-bold text-white group-hover:text-hud-green transition-colors leading-snug">
                     {cert.title}
                   </h4>
                   <p className="text-[11px] font-mono text-hud-text-dim mt-1">
@@ -319,28 +324,52 @@ export const SkillsView: React.FC<SkillsViewProps> = ({
                 </div>
 
                 {/* Verified Skills Tags */}
-                <div className="pt-2 border-t border-white/5">
-                  <div className="flex flex-wrap gap-1 mb-3">
-                    {cert.skillsVerified.map((skill, idx) => (
-                      <span key={idx} className="text-[8px] font-mono bg-white/5 border border-white/10 px-1.5 py-0.5 text-hud-text-dim rounded flex items-center gap-1">
-                        <CheckCircle2 className="w-2.5 h-2.5 text-hud-blue" />
-                        {skill}
-                      </span>
-                    ))}
+                <div className="pt-3 border-t border-white/5 flex flex-col gap-3">
+                  <div>
+                    <span className="text-[9px] font-mono text-hud-text-dim uppercase tracking-wider block mb-1.5">
+                      VERIFIED SKILLS:
+                    </span>
+                    <div className="flex flex-wrap gap-1">
+                      {cert.skillsVerified.map((skill, idx) => (
+                        <span key={idx} className="text-[8px] font-mono bg-white/5 border border-white/10 px-1.5 py-0.5 text-hud-text-dim rounded flex items-center gap-1">
+                          <CheckCircle2 className="w-2.5 h-2.5 text-hud-blue" />
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
                   </div>
+
+                  {/* Complete 15 Modules Breakdown */}
+                  {cert.modulesCompleted && (
+                    <div>
+                      <span className="text-[9px] font-mono text-hud-green uppercase tracking-wider block mb-1.5">
+                        COMPLETED MODULES (15/15):
+                      </span>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-1.5 bg-black/30 p-3 rounded-lg border border-white/5 max-h-48 overflow-y-auto">
+                        {cert.modulesCompleted.map((mod, idx) => (
+                          <div key={idx} className="flex items-center gap-1.5 text-[9px] font-mono text-hud-text-dim">
+                            <span className="text-hud-green font-bold">{idx + 1}.</span>
+                            <span className="truncate">{mod}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
 
                   {/* External Link Action */}
                   {cert.credentialUrl && (
-                    <a
-                      href={cert.credentialUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={() => audioSynth.playClick()}
-                      className="inline-flex items-center gap-1.5 text-[10px] font-mono text-hud-blue hover:text-white transition-colors pt-1"
-                    >
-                      <span>VIEW VERIFICATION</span>
-                      <ExternalLink className="w-3 h-3" />
-                    </a>
+                    <div className="pt-1">
+                      <a
+                        href={cert.credentialUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => audioSynth.playClick()}
+                        className="inline-flex items-center gap-1.5 text-[10px] font-mono text-hud-blue hover:text-white transition-colors"
+                      >
+                        <span>VIEW VERIFICATION</span>
+                        <ExternalLink className="w-3 h-3" />
+                      </a>
+                    </div>
                   )}
                 </div>
               </div>
