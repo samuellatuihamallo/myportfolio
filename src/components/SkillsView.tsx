@@ -29,7 +29,12 @@ const DEFAULT_CERTIFICATES: Certificate[] = [
     issuer: 'ASEAN Foundation (Supported by Google.org)',
     issueDate: '2026-07-20',
     credentialId: 'ASEAN-AI-YOUTH-2026',
-    credentialUrl: 'https://www.AIClassASEAN.org',
+    
+    // 💡 GANTI URL DI BAWAH INI DENGAN LINK SERTIFIKAT KAMU
+    // Contoh 1 (Lokal PDF): '/certificates/ai-ready-asean-samuel.pdf'
+    // Contoh 2 (Google Drive): 'https://drive.google.com/file/d/ID_FILE_DRIVE/view'
+    credentialUrl: 'https://www.AIClassASEAN.org', 
+
     category: 'GENERAL',
     skillsVerified: [
       'Generative AI',
@@ -63,7 +68,7 @@ interface SkillsViewProps {
   skills: SkillNode[];
   onUpgradeSkill: (id: string) => void;
   availablePoints: number;
-  certificates?: Certificate[]; // Optional prop jika ingin passing dari parent
+  certificates?: Certificate[];
 }
 
 export const SkillsView: React.FC<SkillsViewProps> = ({
@@ -160,7 +165,6 @@ export const SkillsView: React.FC<SkillsViewProps> = ({
                       </span>
                     </div>
 
-                    {/* Progress Segment */}
                     <div className="w-full h-1 bg-white/5 rounded-full overflow-hidden">
                       <div 
                         className={`h-full transition-all duration-300 ${
@@ -206,7 +210,6 @@ export const SkillsView: React.FC<SkillsViewProps> = ({
                       </span>
                     </div>
 
-                    {/* Progress Segment */}
                     <div className="w-full h-1 bg-white/5 rounded-full overflow-hidden">
                       <div 
                         className={`h-full transition-all duration-300 ${
@@ -252,7 +255,6 @@ export const SkillsView: React.FC<SkillsViewProps> = ({
                       </span>
                     </div>
 
-                    {/* Progress Segment */}
                     <div className="w-full h-1 bg-white/5 rounded-full overflow-hidden">
                       <div 
                         className={`h-full transition-all duration-300 ${
@@ -269,7 +271,7 @@ export const SkillsView: React.FC<SkillsViewProps> = ({
 
         </div>
 
-        {/* SVG Node Connections background representation */}
+        {/* Matrix Info Box */}
         <div className="hud-glass p-5 rounded-xl border border-white/5 bg-white/[0.01] text-xs leading-relaxed text-hud-text-dim">
           <div className="flex gap-2 items-center text-white font-mono font-bold mb-1 uppercase text-[11px]">
             <Unlock className="w-3.5 h-3.5 text-hud-blue" />
@@ -278,7 +280,7 @@ export const SkillsView: React.FC<SkillsViewProps> = ({
           Every point invested increases cognitive efficiency. Gaining higher levels releases structural point pools, bypassing previous threshold gates to allow complex WebGL rendering, and full-stack Express socket pipeline allocations.
         </div>
 
-        {/* BAGIAN CERTIFICATES & CREDENTIALS SECTION */}
+        {/* CERTIFICATES & CREDENTIALS SECTION */}
         <div className="hud-glass p-6 rounded-xl border border-white/10 flex flex-col gap-5" id="certificates_section">
           <div className="flex justify-between items-center border-b border-white/5 pb-3">
             <div className="flex items-center gap-2">
@@ -323,7 +325,7 @@ export const SkillsView: React.FC<SkillsViewProps> = ({
                   )}
                 </div>
 
-                {/* Verified Skills Tags */}
+                {/* Verified Skills & Modules */}
                 <div className="pt-3 border-t border-white/5 flex flex-col gap-3">
                   <div>
                     <span className="text-[9px] font-mono text-hud-text-dim uppercase tracking-wider block mb-1.5">
@@ -339,11 +341,11 @@ export const SkillsView: React.FC<SkillsViewProps> = ({
                     </div>
                   </div>
 
-                  {/* Complete 15 Modules Breakdown */}
+                  {/* 15 Modules Breakdown */}
                   {cert.modulesCompleted && (
                     <div>
                       <span className="text-[9px] font-mono text-hud-green uppercase tracking-wider block mb-1.5">
-                        COMPLETED MODULES (15/15):
+                        COMPLETED MODULES ({cert.modulesCompleted.length}/15):
                       </span>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-1.5 bg-black/30 p-3 rounded-lg border border-white/5 max-h-48 overflow-y-auto">
                         {cert.modulesCompleted.map((mod, idx) => (
@@ -358,13 +360,13 @@ export const SkillsView: React.FC<SkillsViewProps> = ({
 
                   {/* External Link Action */}
                   {cert.credentialUrl && (
-                    <div className="pt-1">
+                    <div className="pt-2">
                       <a
                         href={cert.credentialUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={() => audioSynth.playClick()}
-                        className="inline-flex items-center gap-1.5 text-[10px] font-mono text-hud-blue hover:text-white transition-colors"
+                        className="inline-flex items-center gap-1.5 text-[10px] font-mono text-hud-blue hover:text-white transition-colors underline decoration-hud-blue/40 hover:decoration-white"
                       >
                         <span>VIEW VERIFICATION</span>
                         <ExternalLink className="w-3 h-3" />
