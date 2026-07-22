@@ -8,6 +8,9 @@ import { CharacterProfile, AttributeStat, Quest, SkillNode, StatType } from '../
 import { Shield, Rocket, ArrowUpRight, Target, BookOpen } from 'lucide-react';
 import { audioSynth } from '../utils/audio';
 
+// REVISI LINE 12: Menggunakan Vite Native Asset URL (Bebas Error TypeScript & 404)
+const mainPhoto = new URL('../assets/images/main_photo.png', import.meta.url).href;
+
 interface DashboardViewProps {
   profile: CharacterProfile;
   stats: AttributeStat[];
@@ -158,11 +161,13 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
             </p>
           </div>
 
-          {/* Generated Widescreen Character Image */}
+          {/* Widescreen Character Image */}
           <div className="w-full overflow-hidden rounded-lg border border-white/10 relative group">
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10 opacity-70 group-hover:opacity-40 transition-opacity duration-300" />
+            
+            {/* Menggunakan variabel mainPhoto hasil resolv URL */}
             <img 
-              src="/src/assets/images/main_photo.png" 
+              src={mainPhoto} 
               alt="Kinetic Dashboard Cyber Console" 
               className="w-full h-auto aspect-[16/9] object-cover object-center transform group-hover:scale-105 transition-transform duration-500"
               referrerPolicy="no-referrer"
@@ -170,6 +175,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
                 e.currentTarget.src = "https://picsum.photos/seed/cyberpunk/800/450";
               }}
             />
+            
             {/* Holographic scanning overlay */}
             <div className="absolute inset-0 hud-scanlines pointer-events-none opacity-20" />
             <div className="absolute bottom-3 left-3 z-20 flex items-center gap-2">
@@ -180,7 +186,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
             </div>
           </div>
 
-          {/* DESKRIPSI DI BAWAH GAMBAR YANG SUDAH DIPERBARUI */}
+          {/* DESKRIPSI DI BAWAH GAMBAR */}
           <div className="text-hud-text-dim text-sm space-y-4 leading-relaxed font-sans">
             <p>
               Specializing in full-stack orchestration, this operative is renowned for deploying high-efficiency management dashboards, securing core architecture through robust authentication networks, and designing responsive, multi-themed data interfaces. From automated utility scripting to fine-tuning database schemas, every routine is compiled to achieve absolute operational synergy and seamless user engagement.
