@@ -33,7 +33,7 @@ const DEFAULT_CERTIFICATES: Certificate[] = [
     // 💡 GANTI URL DI BAWAH INI DENGAN LINK SERTIFIKAT KAMU
     // Contoh 1 (Lokal PDF): '/certificates/ai-ready-asean-samuel.pdf'
     // Contoh 2 (Google Drive): 'https://drive.google.com/file/d/ID_FILE_DRIVE/view'
-    credentialUrl: 'https://www.AIClassASEAN.org', 
+    credentialUrl: 'https://drive.google.com/drive/folders/1kTlu0GmaJ6dD5ZnTns9xSsvcu7RrmCNI?usp=sharing', 
 
     category: 'GENERAL',
     skillsVerified: [
