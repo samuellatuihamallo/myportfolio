@@ -162,7 +162,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
           <div className="w-full overflow-hidden rounded-lg border border-white/10 relative group">
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10 opacity-70 group-hover:opacity-40 transition-opacity duration-300" />
             <img 
-              src="/src/assets/images/portfolio.png" 
+              src="/src/assets/images/main_photo.png" 
               alt="Kinetic Dashboard Cyber Console" 
               className="w-full h-auto aspect-[16/9] object-cover object-center transform group-hover:scale-105 transition-transform duration-500"
               referrerPolicy="no-referrer"
