@@ -85,8 +85,7 @@ const DEFAULT_CERTIFICATES: Certificate[] = [
     issuer: 'Google',
     issueDate: '2026-07-23',
     credentialId: '189466023',
-    // 💡 GANTI LINK DI BAWAH INI SESUAI DENGAN FILE / DRIVE KAMU
-    credentialUrl: '/certificates/Google_Ads_AI_Powered_Performance_Certification.jpg', 
+    credentialUrl: 'https://drive.google.com/drive/folders/1toWNPhkp7-w7a5SzXX8eWTJS8bBIl4bD?usp=sharing', 
     category: 'GENERAL',
     skillsVerified: [
       'Google Ads',
