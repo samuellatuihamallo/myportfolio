@@ -64,8 +64,8 @@ const DEFAULT_CERTIFICATES: Certificate[] = [
     issueDate: '2026-07-23',
     credentialId: 'CODE-ORG-AI-OCEANS',
     
-    // 💡 GANTI LINK DI BAWAH INI SESUAI DENGAN LOKASI FILE / DRIVE KAMU
-    credentialUrl: '/certificates/Sertifikat_Hour_of_Code_Samuel_Latuihamallo.jpg', 
+    // Link verification telah diperbarui
+    credentialUrl: 'https://drive.google.com/drive/folders/1SEHfHX5IQln-5j7V_sz8NxyA575GpuXa?usp=sharing', 
     
     category: 'GENERAL',
     skillsVerified: [
