@@ -21,7 +21,7 @@ export interface Certificate {
   modulesCompleted?: string[];
 }
 
-// Data Sertifikat Default - AI Ready ASEAN (Samuel Latuihamallo)
+// Data Sertifikat Default
 const DEFAULT_CERTIFICATES: Certificate[] = [
   {
     id: 'cert-ai-ready-asean',
@@ -29,12 +29,7 @@ const DEFAULT_CERTIFICATES: Certificate[] = [
     issuer: 'ASEAN Foundation (Supported by Google.org)',
     issueDate: '2026-07-20',
     credentialId: 'ASEAN-AI-YOUTH-2026',
-    
-    // 💡 GANTI URL DI BAWAH INI DENGAN LINK SERTIFIKAT KAMU
-    // Contoh 1 (Lokal PDF): '/certificates/ai-ready-asean-samuel.pdf'
-    // Contoh 2 (Google Drive): 'https://drive.google.com/file/d/ID_FILE_DRIVE/view'
     credentialUrl: 'https://drive.google.com/drive/folders/1kTlu0GmaJ6dD5ZnTns9xSsvcu7RrmCNI?usp=sharing', 
-
     category: 'GENERAL',
     skillsVerified: [
       'Generative AI',
@@ -62,6 +57,31 @@ const DEFAULT_CERTIFICATES: Certificate[] = [
       'Fundamental to Develop AI-Learn to create a simple AI-Based Tools'
     ]
   },
+  {
+    id: 'cert-hour-of-code-ai-oceans',
+    title: 'Hour of Code: AI for Oceans',
+    issuer: 'Code.org',
+    issueDate: '2026-07-23',
+    credentialId: 'CODE-ORG-AI-OCEANS',
+    
+    // 💡 GANTI LINK DI BAWAH INI SESUAI DENGAN LOKASI FILE / DRIVE KAMU
+    credentialUrl: '/certificates/Sertifikat_Hour_of_Code_Samuel_Latuihamallo.jpg', 
+    
+    category: 'GENERAL',
+    skillsVerified: [
+      'Machine Learning Concepts',
+      'AI Data Training & Classification',
+      'Ethical AI & Bias in Data',
+      'Computer Science Fundamentals',
+      'Environmental Tech Application'
+    ],
+    modulesCompleted: [
+      'Introduction to AI & Machine Learning',
+      'Training AI Models with Data',
+      'Recognizing Bias in Machine Learning',
+      'AI Application for Ocean Conservation'
+    ]
+  }
 ];
 
 interface SkillsViewProps {
@@ -341,11 +361,11 @@ export const SkillsView: React.FC<SkillsViewProps> = ({
                     </div>
                   </div>
 
-                  {/* 15 Modules Breakdown */}
+                  {/* Modules Breakdown */}
                   {cert.modulesCompleted && (
                     <div>
                       <span className="text-[9px] font-mono text-hud-green uppercase tracking-wider block mb-1.5">
-                        COMPLETED MODULES ({cert.modulesCompleted.length}/15):
+                        COMPLETED MODULES ({cert.modulesCompleted.length}):
                       </span>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-1.5 bg-black/30 p-3 rounded-lg border border-white/5 max-h-48 overflow-y-auto">
                         {cert.modulesCompleted.map((mod, idx) => (
