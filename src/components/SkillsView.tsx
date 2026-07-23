@@ -63,10 +63,7 @@ const DEFAULT_CERTIFICATES: Certificate[] = [
     issuer: 'Code.org',
     issueDate: '2026-07-23',
     credentialId: 'CODE-ORG-AI-OCEANS',
-    
-    // Link verification telah diperbarui
     credentialUrl: 'https://drive.google.com/drive/folders/1SEHfHX5IQln-5j7V_sz8NxyA575GpuXa?usp=sharing', 
-    
     category: 'GENERAL',
     skillsVerified: [
       'Machine Learning Concepts',
@@ -80,6 +77,29 @@ const DEFAULT_CERTIFICATES: Certificate[] = [
       'Training AI Models with Data',
       'Recognizing Bias in Machine Learning',
       'AI Application for Ocean Conservation'
+    ]
+  },
+  {
+    id: 'cert-google-ads-ai-performance',
+    title: 'AI-Powered Performance Ads Certification',
+    issuer: 'Google',
+    issueDate: '2026-07-23',
+    credentialId: '189466023',
+    // 💡 GANTI LINK DI BAWAH INI SESUAI DENGAN FILE / DRIVE KAMU
+    credentialUrl: '/certificates/Google_Ads_AI_Powered_Performance_Certification.jpg', 
+    category: 'GENERAL',
+    skillsVerified: [
+      'Google Ads',
+      'AI Optimization',
+      'Performance Marketing',
+      'Search & Bidding Strategies',
+      'Campaign Automation'
+    ],
+    modulesCompleted: [
+      'AI-Powered Performance Ads Foundations',
+      'Smart Bidding & Broad Match Optimization',
+      'Creative Excellence with AI Tools',
+      'Cross-Channel Campaign Optimization'
     ]
   }
 ];
